@@ -1,8 +1,54 @@
 # XThread — Logseq plugin
 
-Escribe hilos de X (Twitter) dentro de Logseq.
+Write X (Twitter) threads inside Logseq.
 
-![XThread en acción](demo.gif)
+![XThread in action](demo.gif)
+
+- **1 block = 1 tweet** of the thread.
+- **Floating counter** showing remaining characters in the top-right corner of the focused block. Orange under 20 left / **red when negative** if you go over.
+- **Visual overflow highlight**: characters beyond 280 are painted with a translucent red background. Nothing is deleted or truncated.
+- **Faithful X rule**: URLs count as 23, CJK and emoji count as 2, `\n` (Shift+Enter) counts as 1.
+- **Persistence**: Logseq saves every change to the page's `.md`, no extra work needed.
+
+## Install
+
+1. Download `xthread.zip` and unzip it into a folder of your choice.
+2. Logseq → ··· → **Settings** → **Advanced** → **Developer mode** → ON
+3. Logseq → ··· → **Plugins** → **Load unpacked plugin**
+4. Select the folder where you unzipped `xthread`.
+5. Enable the plugin.
+
+> **Needs internet on first load**: the plugin pulls `@logseq/libs` from unpkg (CDN). If you start Logseq offline, it won't hook into the editor.
+
+## Usage
+
+Create a new page: each thread is a page, each block (line) is a tweet of the thread.
+
+- Focusing a block shows the counter with the remaining characters.
+- The number turns orange under 20 left and red when negative if you go over.
+- Characters beyond 280 stay in the block but are painted with a red background, so you see exactly what's over the limit.
+- For the next tweet in the thread, hit Enter and write in the next block.
+
+## How it counts
+
+Replicates the `twitter-text` v3 algorithm:
+
+- Characters in U+0000–U+10FF and some general-punctuation ranges = 1 each
+- Everything else (CJK, emoji…) = 2 each
+- URLs (`http(s)://…` or `www.…`) = 23 regardless of actual length
+
+## Roadmap
+
+- [ ] More faithful URL detection (TLDs without protocol, `t.co`)
+- [ ] X-style circular indicator instead of a plain number
+- [ ] Slash command to export the numbered thread to the clipboard
+- [ ] Handle IME composition (Chinese/Japanese) without trimming mid-composition
+
+---
+
+# XThread — plugin de Logseq
+
+Escribe hilos de X (Twitter) dentro de Logseq.
 
 - **1 bloque = 1 tweet** del hilo.
 - **Contador flotante** con caracteres restantes en la esquina superior derecha del bloque enfocado. Verde / naranja a partir de 20 restantes / **rojo en negativo** si te pasas.
