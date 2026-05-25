@@ -1,0 +1,18 @@
+{
+  "name": "xthread",
+  "version": "0.1.0",
+  "description": "Write X/Twitter threads in Logseq — 1 block = 1 tweet, faithful X character counter, visual highlight of overflow past 280.",
+  "main": "index.html",
+  "author": "lunaticoin",
+  "license": "MIT",
+  "homepage": "https://github.com/lunaticoin/xthread",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lunaticoin/xthread.git"
+  },
+  "logseq": {
+    "id": "xthread",
+    "title": "XThread",
+    "icon": "icon.png"
+  }
+}
