@@ -2,6 +2,8 @@
 
 Escribe hilos de X (Twitter) dentro de Logseq.
 
+![XThread en acción](demo.gif)
+
 - **1 bloque = 1 tweet** del hilo.
 - **Contador flotante** con caracteres restantes en la esquina superior derecha del bloque enfocado. Verde / naranja a partir de 20 restantes / **rojo en negativo** si te pasas.
 - **Marcado visual del exceso**: los caracteres que se quedan fuera de los 280 se pintan con fondo rojo translúcido. Nada se borra ni se trunca.
